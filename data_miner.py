@@ -75,7 +75,7 @@ class DataFII():
         df_fe.drop("Unnamed: 0", axis = 1, inplace=True)
         
         # Rename columns
-        df_fe.columns = ['ticker', 'setor', 'preço', 'liquidez_diaria', 'div_mes_brl', 'dy_1m', 'dy_3m_acc', 'dy_6m_acc', 'dy_12m_acc',
+        df_fe.columns = ['ticker', 'setor', 'preço', 'num_negocios', 'div_mes_brl', 'dy_1m', 'dy_3m_acc', 'dy_6m_acc', 'dy_12m_acc',
                          'dy_3m_avg', 'dy_6m_avg', 'dy_12m_avg', 'dy_ano', 'var_preço', 'rent_periodo', 'rent_acc', 'PL', 'VPA', 'PVPA',
                          'dy_VPA', 'var_VPA', 'rent_VPA_periodo', 'rent_VPA_acc', 'vacancia_fisica', 'vacancia_financeira', 'qtd_ativos']
         
@@ -101,8 +101,8 @@ class DataFII():
         print('... ok')
         
         # Save .csv files
-        df_fe.to_csv(self.DATA_FOLDER + self.RAW_FILE_FUNDS, sep = ';')
-        df_si.to_csv(self.DATA_FOLDER + self.RAW_FILE_STATUSINVEST, sep = ';')
+        df_fe.to_csv(self.DATA_FOLDER + self.RAW_FILE_FUNDS, sep = ';', index = False)
+        df_si.to_csv(self.DATA_FOLDER + self.RAW_FILE_STATUSINVEST, sep = ';', index = False)
         
     
     def get_FII_data(self):
